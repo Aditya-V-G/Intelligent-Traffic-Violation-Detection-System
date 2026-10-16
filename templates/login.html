@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Login</title><link rel="stylesheet" href="/static/styles.css"></head>
+<body class="login">
+<div class="login-container">
+  <h2>Sign in</h2>
+  {% if error %}<div style="color:#c0392b;margin-bottom:8px">{{ error }}</div>{% endif %}
+  <form method="post" action="/validate_login">
+    <input name="username" placeholder="Username" required>
+    <input name="password" type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- templates/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Search Plate</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav>
+  <h1>Smart Traffic Monitoring</h1>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/live_monitoring">Live Monitoring</a></li>
+    <li><a href="/results">Results</a></li>
+    <li><a href="/logout">Logout</a></li>
+  </ul>
+  <span class="nav-toggle" onclick="toggleNav()">☰</span>
+</nav>
+
+<main class="page-container">
+  <div class="content">
+    <h2>Search License Plate</h2>
+
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+      <input type="text" name="number_plate" placeholder="Enter plate (e.g. KA01AB1234)" required>
+      <button type="submit" class="submit">Search</button>
+    </form>
+
+    {% if detections %}
+      <h3 style="margin-top:16px;">Results</h3>
+      <ul>
+        {% for d in detections %}
+          <li>{{ d.plate_number }} — last seen: {{ d.last_seen }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</main>
+
+<script>function toggleNav(){ document.querySelector("nav ul").classList.toggle("show"); }</script>
+</body>
+</html>

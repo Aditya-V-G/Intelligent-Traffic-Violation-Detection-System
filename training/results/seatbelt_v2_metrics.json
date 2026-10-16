@@ -1,0 +1,84 @@
+{
+ "task": "seatbelt_v2",
+ "dataset": {
+  "sources": [
+   {
+    "folder": "dms-vewel_seatbelt-smjqq_v1",
+    "mapping": {
+     "cell phone": null,
+     "drinking": null,
+     "eyeglass": null,
+     "hands off": null,
+     "hands on": null,
+     "mask": null,
+     "seatbelt": "seatbelt"
+    }
+   },
+   {
+    "folder": "akaike_seatbelt-detection-vvyjz_v1",
+    "mapping": {
+     "car windshield": null,
+     "seat-belt": "seatbelt",
+     "un seat-belt": "no_seatbelt",
+     "vehicle": null
+    }
+   },
+   {
+    "folder": "yolov8-yz9vg_mobile-and-seatbelt_v1",
+    "mapping": {
+     "mobile use": null
+    }
+   },
+   {
+    "folder": "2tech_seat-belt-detection-udcfg_v5",
+    "mapping": {
+     "seat_belt": "seatbelt"
+    }
+   }
+  ],
+  "images": {
+   "train": 3258,
+   "val": 408,
+   "test": 408
+  },
+  "boxes": {
+   "no_seatbelt": 228,
+   "seatbelt": 4398
+  }
+ },
+ "new": {
+  "precision": 0.9609,
+  "recall": 0.9456,
+  "mAP50": 0.9655,
+  "mAP50_95": 0.5311,
+  "per_class": {
+   "no_seatbelt": 0.474,
+   "seatbelt": 0.5881
+  }
+ },
+ "old": {
+  "trainedmodels/seatbelt_yolov8.pt": {
+   "precision": 0.2195,
+   "recall": 0.2446,
+   "mAP50": 0.1417,
+   "mAP50_95": 0.0419,
+   "per_class": {
+    "seatbelt": 0.0057,
+    "no_seatbelt": 0.0781
+   },
+   "mAP50_95_task_classes": 0.0419
+  },
+  "trainedmodels/seatbelt.pt": {
+   "precision": 0.2159,
+   "recall": 0.3018,
+   "mAP50": 0.191,
+   "mAP50_95": 0.0523,
+   "per_class": {
+    "no seat belt": 0.0229,
+    "seatbelt": 0.0816
+   },
+   "mAP50_95_task_classes": 0.0523
+  }
+ },
+ "train_minutes": 61.2
+}

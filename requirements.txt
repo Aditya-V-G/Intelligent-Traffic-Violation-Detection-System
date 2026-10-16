@@ -1,0 +1,14 @@
+ultralytics>=8.3.0      # YOLOv8 + ByteTrack (needs `lap`, installed automatically)
+lap>=0.5.12
+opencv-python
+easyocr
+fast-plate-ocr[onnx]>=1.1   # plate-specific OCR models (MIT); EasyOCR stays as fallback
+numpy
+pyyaml
+flask
+pymysql
+python-dotenv
+pytesseract             # optional: used only if Tesseract is installed
+roboflow                # training/prepare_dataset.py only
+pytest                  # tests/
+waitress                # production web server (python -m waitress --port=5000 app:app)

@@ -1,0 +1,60 @@
+{
+ "task": "accident_v3",
+ "dataset": {
+  "sources": [
+   {
+    "folder": "accident-detection-model_accident-detection-model_v2_yolov8",
+    "mapping": {
+     "Accident": "accident"
+    }
+   },
+   {
+    "folder": "yolov8-af6df_car-crash-5xrof_v1_yolov8",
+    "mapping": {
+     "car": null,
+     "crash": "accident"
+    }
+   },
+   {
+    "folder": "vit-zihk6_accident-detection-using-yolov8-ujxkn_v2_yolov8",
+    "mapping": {
+     "accident": "accident",
+     "person": null,
+     "vehicle": null
+    }
+   }
+  ],
+  "images": {
+   "train": 2874,
+   "val": 370,
+   "test": 370
+  },
+  "boxes": {
+   "accident": 3668
+  },
+  "duplicates_removed": 136,
+  "negative_frames": 800
+ },
+ "new": {
+  "precision": 0.9348,
+  "recall": 0.9167,
+  "mAP50": 0.9491,
+  "mAP50_95": 0.6439,
+  "per_class": {
+   "accident": 0.6439
+  }
+ },
+ "old": {
+  "trainedmodels/accident_best.pt": {
+   "precision": 0.5652,
+   "recall": 0.3351,
+   "mAP50": 0.3843,
+   "mAP50_95": 0.1636,
+   "per_class": {
+    "Accident": 0.1636
+   },
+   "mAP50_95_task_classes": 0.1636
+  }
+ },
+ "train_minutes": 73.3
+}

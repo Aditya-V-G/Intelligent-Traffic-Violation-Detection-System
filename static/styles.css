@@ -1,0 +1,560 @@
+/* body — allow scrolling, use min-height so full viewport still gets covered */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;      /* ok to keep to ensure full-screen background */
+    /* REMOVE height: 100vh; */
+    /* REMOVE overflow: hidden; */
+    background-color: #eff2f6;
+    color: #333;
+    line-height: 1.6;
+    box-sizing: border-box; /* helpful */
+}
+
+
+
+/* Login Page Styling */
+body.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/images/3.jpeg') no-repeat center center/cover;
+    margin: 0;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 550px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    border: 2px solid #1abc9c; /* Updated border color */
+}
+
+/* Ensure same size for input fields and button */
+.login-container input,
+.login-container button {
+    width: 100%;  /* Full width to ensure alignment */
+    padding: 1rem;  /* Equal padding for both to ensure consistent height */
+    border-radius: 10px;  /* Rounded corners */
+    font-size: 1rem;  /* Consistent font size */
+    box-sizing: border-box;  /* Include padding in width */
+}
+
+/* Specific styles for the input fields */
+.login-container input {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;  /* Space between inputs */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Specific styles for the login button */
+.login-container button {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Green gradient */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Focus styles for input fields */
+.login-container input:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
+    outline: none;
+}
+
+/* Hover styles for the login button */
+.login-container button:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50; /* Dark blue */
+    padding: 1rem 2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Ensure wrapping for smaller screens */
+}
+
+nav h1 {
+    color: #ecf0f1;
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #1abc9c; /* Updated hover color */
+    transform: translateY(-3px);
+}
+
+/* Hide navigation items in mobile view */
+.nav-links {
+    display: flex;
+}
+
+.nav-toggle {
+    display: none; /* Hidden by default */
+    font-size: 2rem;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+
+/* Responsive Design for Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack links vertically */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width */
+        background-color: #2c3e50; /* Match nav background */
+        padding: 1rem;
+        gap: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu */
+    }
+
+    .nav-toggle {
+        display: block; /* Show toggle icon */
+    }
+}
+
+/* Main Content Container */
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure stacking on smaller screens */
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    position: relative; /* Ensure it’s positioned correctly */
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: none
+}
+
+/* Images in Slideshow */
+.slideshow-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .slideshow-container {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
+/* Content Section */
+.content {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    animation: slideIn 1.2s ease-out;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.content h2 {
+    font-size: 2.8rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.content button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Updated green gradient */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s;
+}
+
+.content button:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Content Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .content h2 {
+        font-size: 2.2rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+}
+
+/* Centered Content on upload Page */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    height: 100%;
+}
+
+/* Content Box Styling */
+.content {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 750px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.content h2 {
+    font-size: 2.8rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+/* Form styling to align input fields and button properly */
+.content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.content input {
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+    border: 1px solid #bdc3c7;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+.content button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Updated gradient */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.content button:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.content button:active {
+    transform: scale(1);
+}
+
+/* Vehicle Details Styling */
+.vehicle-details {
+    margin-top: 2rem;
+    text-align: left;
+    padding: 1rem;
+    background-color: #f0f9ff;
+    border-radius: 10px;
+}
+
+.vehicle-details h3 {
+    font-size: 1.8rem;
+    color: #34495e;
+    font-weight: bold;
+}
+
+.vehicle-details p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+/* Styling for the label */
+.form-label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #34495e; /* Darker color */
+    margin-bottom: 0.8rem;
+}
+
+/* Styling for the dropdown */
+.form-select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.form-select:focus {
+    border-color: #1abc9c; /* Updated focus color */
+    outline: none;
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5); /* Updated focus shadow */
+}
+
+/* ================================
+   LIVE MONITORING PAGE STYLES
+   (Add-on, does NOT replace main CSS)
+================================ */
+
+/* Main wrapper */
+.live-wrapper {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.live-wrapper h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Hint text */
+.live-hint {
+    text-align: center;
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+/* Form labels */
+.live-form label {
+    font-size: 1.1rem;
+    color: #34495e;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+/* Dropdown and file inputs */
+.live-form input[type="file"],
+.live-form select {
+    width: 100%;
+    padding: .9rem;
+    border: 1px solid #d0d7db;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.live-form input:focus,
+.live-form select:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 8px rgba(26,188,156,0.4);
+}
+
+/* Submit button */
+.live-submit {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(135deg,#16a085,#1abc9c);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.live-submit:hover {
+    background: linear-gradient(135deg,#1abc9c,#16a085);
+    transform: scale(1.03);
+}
+
+
+/* =====================================
+   RESULTS PAGE STYLES
+===================================== */
+
+.results-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.results-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Card grid */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1.5rem;
+}
+
+/* Individual result card */
+.result-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.result-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: .8rem;
+}
+
+.result-info {
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.5;
+}
+
+.result-info strong {
+    color: #1abc9c;
+}
+
+/* static/styles.css (merged & cleaned) */
+:root{ --primary:#16a085; --accent:#1abc9c; --nav:#2c3e50; --muted:#7f8c8d; }
+
+/* base */
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f4f7fb;color:#263238;line-height:1.5}
+nav{display:flex;justify-content:space-between;align-items:center;background:var(--nav);padding:14px 20px;color:#fff;position:sticky;top:0;z-index:1000}
+nav h1{margin:0;font-size:1.3rem}
+nav ul{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+nav ul li a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:8px}
+nav ul.show{display:flex}
+.nav-toggle{display:none;color:#fff;font-size:1.2rem;cursor:pointer}
+
+/* page container */
+.page-container{max-width:1100px;margin:28px auto;padding:12px}
+.content{background:#fff;padding:22px;border-radius:12px;box-shadow:0 8px 24px rgba(24,39,77,0.06)}
+.hint{color:var(--muted);margin-bottom:14px}
+
+/* forms */
+.form-label{font-weight:600;margin-bottom:6px;display:block}
+.form-select,input[type="file"],input[type="text"],select{width:100%;padding:12px;border:1px solid #e0e7ee;border-radius:10px;background:#fbfdff}
+.submit{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700;cursor:pointer;margin-top:8px}
+.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--primary);color:#fff;text-decoration:none}
+.btn.secondary{background:#4aa3de}
+
+/* results table */
+.results-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+.results-table th, .results-table td{padding:12px 10px;text-align:left;border-bottom:1px solid #f1f4f8}
+.results-table thead th{background:#f6fbfa;font-weight:700}
+.thumb{width:100px;height:auto;border-radius:6px;object-fit:cover}
+.thumb-grid{display:flex;flex-wrap:wrap;gap:8px}
+.grid-thumb{width:120px;height:80px;object-fit:cover;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+/* responsive */
+@media(max-width:768px){
+  nav ul{display:none;flex-direction:column;gap:10px;width:100%}
+  .nav-toggle{display:block}
+  .page-container{padding:12px}
+  .results-table td, .results-table th{padding:8px}
+}

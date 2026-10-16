@@ -1,0 +1,145 @@
+{
+ "task": "phone_v3",
+ "base": "yolov8m",
+ "dataset": {
+  "sources": [
+   {
+    "folder": "phoneusagedetection_phone-call-usage_v1_yolov8",
+    "mapping": {
+     "phone-person - v1 2024-03-26 10-15am": "using_phone"
+    },
+    "prefix": "s0_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "yolov8-ei4l6_distracted-driving-yolov8_v6_yolov8",
+    "mapping": {
+     "D0-Hand-on-Wheel": null,
+     "D1-Texting": "using_phone",
+     "D2-Calling": "using_phone",
+     "D3-Drinking": null,
+     "D4-Reach-Behind": null
+    },
+    "prefix": "s1_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "yashi-ts8gg_modified-distracted-driver-dataset-eqcbw_v1_yolov8",
+    "mapping": {
+     "c0 - Safe Driving": null,
+     "c1 - Texting": "using_phone",
+     "c2 - Talking on the phone": "using_phone",
+     "c3 - Operating the Radio": null,
+     "c4 - Drinking": null,
+     "c5 - Reaching Behind": null,
+     "c6 - Hair and Makeup": null,
+     "c7 - Talking to Passenger": null,
+     "d0 - Eyes Closed": null,
+     "d1 - Yawning": null,
+     "d2 - Nodding Off": null,
+     "d3 - Eyes Open": null
+    },
+    "prefix": "s2_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "yolov8-yz9vg_mobile-and-seatbelt_v1_yolov8",
+    "mapping": {
+     "mobile use": "using_phone"
+    },
+    "prefix": "s3_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "traffic-violation-detection_tvdis_v2_yolov8",
+    "mapping": {
+     "No helmet": null,
+     "Triple riding": null,
+     "Using mobile": "using_phone",
+     "Wheeling": null
+    },
+    "prefix": "s4_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "traffic-violation-detection_tvd-kp9qw_v11_yolov8",
+    "mapping": {
+     "No helmet": null,
+     "Triple riding": null,
+     "Using mobile": "using_phone",
+     "Wheeling": null
+    },
+    "prefix": "s5_",
+    "classes_present": [
+     "using_phone"
+    ]
+   },
+   {
+    "folder": "traffic-violation_phonedriving_v2_yolov8",
+    "mapping": {
+     "driveronphone": "using_phone"
+    },
+    "prefix": "s6_",
+    "classes_present": [
+     "using_phone"
+    ]
+   }
+  ],
+  "images": {
+   "train": 13769,
+   "val": 1698,
+   "test": 1696
+  },
+  "boxes": {
+   "using_phone": 10382
+  },
+  "duplicates_removed": 4,
+  "holdout_lookalikes_removed": 0
+ },
+ "new": {
+  "precision": 0.9541,
+  "recall": 0.925,
+  "mAP50": 0.9723,
+  "mAP50_95": 0.6899,
+  "per_class": {
+   "using_phone": 0.6899
+  },
+  "per_class_detail": {
+   "using_phone": {
+    "mAP50": 0.9723,
+    "precision": 0.9541,
+    "recall": 0.925
+   }
+  }
+ },
+ "old": {
+  "trainedmodels/phoneusage.pt": {
+   "precision": 0.0004,
+   "recall": 0.007,
+   "mAP50": 0.0,
+   "mAP50_95": 0.0,
+   "per_class": {
+    "phone usage": 0.0
+   },
+   "per_class_detail": {
+    "phone usage": {
+     "mAP50": 0.0,
+     "precision": 0.0004,
+     "recall": 0.007
+    }
+   },
+   "mAP50_95_task_classes": 0.0
+  }
+ },
+ "train_minutes": 154.9
+}

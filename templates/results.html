@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detection Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <style>
+        body {
+            background: #f4f7fb;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: #1b4de4;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        nav h1 { font-size: 22px; margin: 0; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { color: white; text-decoration: none; }
+
+        .page-container {
+            width: 94%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b4de4;
+            margin-bottom: 35px;
+        }
+
+        /* CATEGORY TITLE */
+        .category-title {
+            margin-top: 45px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #222;
+            border-left: 10px solid #1b4de4;
+            padding-left: 12px;
+            margin-bottom: 18px;
+        }
+
+        /* IMAGE GRID */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .image-card {
+            background: white;
+            padding: 12px;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        }
+
+        .image-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .image-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: white;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .helmet_violation { background: #e23b3b; }
+        .triple_riding { background: #b312ff; }
+        .phone_usage { background: #0077cc; }
+        .seatbelt_violation { background: #ff8800; }
+        .wrong_lane { background: #ff4444; }
+        .accident { background: #ff0000; }
+        .atcc { background: #1b4de4; }
+        .others { background: #444; }
+
+        .no-records {
+            margin-left: 15px;
+            color: #777;
+            font-size: 14px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h1>Smart Traffic Monitoring System</h1>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/live_monitoring">Live Monitoring</a></li>
+        <li><a href="/results">Results</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="page-container">
+
+    <h1>Detection Results</h1>
+
+    <!-- CLEAR DATABASE BUTTON -->
+    <div style="text-align:center; margin-bottom:25px;">
+        <a href="/clear_database"
+           style="
+               background:#e63946;
+               color:white;
+               padding:10px 20px;
+               text-decoration:none;
+               font-size:15px;
+               border-radius:8px;
+               font-weight:bold;
+               box-shadow:0 3px 10px rgba(0,0,0,0.18);
+           "
+           onclick="return confirm('⚠️ Are you sure you want to delete ALL detection records?');">
+            🗑️ Clear All Detection Records
+        </a>
+    </div>
+
+    {% for category, items in grouped.items() %}
+        
+        <div class="category-title">
+            {{ category.replace("_", " ") | upper }}
+        </div>
+
+        {% if items %}
+            <div class="image-grid">
+                {% for row in items %}
+                <div class="image-card">
+
+                    <!-- BADGE -->
+                    <span class="badge {{ category }}">
+                        {{ category.replace("_", " ") }}
+                    </span>
+
+                    <!-- IMAGE -->
+                    <img src="/static/uploads/detections/{{ row.image_filename }}" alt="violation">
+
+                    <!-- INFO -->
+                    <div class="image-info">
+                        <b>Plate:</b> {{ row.number_plate }} <br>
+                        <b>Video:</b> {{ row.video_file }} <br>
+                        <b>Time:</b> {{ row.detected_at }} <br>
+
+                        {% if row.extra_info %}
+                        <hr>
+                        {% for part in row.extra_info.split(',') %}
+                            • {{ part }}<br>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-records">No records found.</div>
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

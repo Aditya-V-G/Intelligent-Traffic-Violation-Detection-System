@@ -1,0 +1,17 @@
+# Seatbelt dataset (retraining; old model mAP50 = 0.38)
+# 1. export ROBOFLOW_API_KEY=...   2. python training/prepare_dataset.py --config training/seatbelt.yaml
+# On the first run the script prints any source class that is not in `map` yet:
+# map each to "no_seatbelt", "seatbelt" or null (drop). Check the version number on the
+# dataset's Roboflow page. Add your own labelled frames as a `path:` source -
+# a few hundred frames from your cameras help more than anything else.
+output: dsets/seatbelt
+classes: [no_seatbelt, seatbelt]          # names the pipeline recognises
+sources:
+  - roboflow: dms-vewel/seatbelt-smjqq/1           # ~1,500 images
+    map: {}
+  - roboflow: akaike/seatbelt-detection-vvyjz/1    # ~200 images
+    map: {}
+  - roboflow: yolov8-yz9vg/mobile-and-seatbelt/1   # ~1,500 images, also has phone classes
+    map: {}
+  # - path: dsets/seatbelt                          # the dataset the old model was trained on
+  #   map: {"no-seatbelt": no_seatbelt, "seatbelt": seatbelt}

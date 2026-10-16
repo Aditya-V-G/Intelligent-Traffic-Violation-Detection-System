@@ -1,0 +1,55 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Datasets
+dsets/
+
+# Generated YOLO training/output files
+runs/
+
+# Runtime-generated files
+uploads/
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Keep project models and sample videos
+!*.pt
+!*.pth
+!*.onnx
+!*.mp4
+!*.mov
+!*.avi
+
+# Before/after comparison output
+before_after*/
+
+# Retrained weights are delivered in the release zip, not committed (Git LFS not available here)
+trainedmodels/*_v[0-9]*.pt
+runs/
+dsets/

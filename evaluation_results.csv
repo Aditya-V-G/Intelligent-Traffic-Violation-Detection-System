@@ -1,0 +1,8 @@
+model,data_yaml,mp_precision,mr_recall,f1 (computed),mAP@50,mAP@50:0.95,val_images,val_instances,fps,status,notes
+accident.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/accident/data.yaml,0.8829,0.8200,0.8503,0.9033,0.6575,,,0.07,OK,
+helmetdetection.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/helmet_detection/data.yaml,0.8832,0.7514,0.8119,0.8355,0.6938,,,0.01,OK,
+lane.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/lane/data.yaml,0.8527,0.7477,0.7967,0.8413,0.6428,,,0.11,OK,
+numberplate.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/numberplate/data.yaml,0.9643,0.9271,0.9453,0.9808,0.7890,,,0.19,OK,
+phoneusage.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/phoneusage/data.yaml,0.0766,0.1240,0.0947,0.1056,0.0532,,,0.15,OK,
+seatbelt.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/seatbelt/data.yaml,0.5080,0.3739,0.4307,0.3802,0.1502,,,0.06,OK,
+vehicledetection.pt,C:/capstone_project/ANPR-and-ATCC-for-Smart-Traffic-Management/dsets/vehicledetection/data.yaml,0.9791,0.9803,0.9797,0.9918,0.7671,,,0.09,OK,

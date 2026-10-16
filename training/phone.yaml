@@ -1,0 +1,13 @@
+# Phone-usage dataset (retraining; old model mAP50 = 0.10)
+# Box convention: ONE class "using_phone" drawn around the phone held at the ear / in hand
+# by a driver or rider. Map "phone"/"cell phone"/"talking on phone" style classes to it,
+# and everything else (drinking, yawning, steering wheel, ...) to null.
+output: dsets/phone
+classes: [using_phone]
+sources:
+  - roboflow: phoneusagedetection/phone-call-usage/1   # ~3,100 images, MIT licence
+    map: {}
+  - roboflow: yolov8-yz9vg/mobile-and-seatbelt/1       # phone boxes from driver-cabin views
+    map: {}
+  # - path: dsets/phoneusage
+  #   map: {}

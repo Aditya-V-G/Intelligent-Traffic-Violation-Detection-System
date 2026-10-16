@@ -1,0 +1,40 @@
+<!-- templates/upload_video.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Upload Video</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav>
+  <h1>Smart Traffic Monitoring</h1>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/live_monitoring">Live Monitoring</a></li>
+    <li><a href="/results">Results</a></li>
+    <li><a href="/logout">Logout</a></li>
+  </ul>
+  <span class="nav-toggle" onclick="toggleNav()">☰</span>
+</nav>
+
+<main class="page-container">
+  <div class="content">
+    <h2>Upload a Video</h2>
+
+    {% if success %}
+      <p class="hint" style="color:green">Uploaded: {{ filename }}</p>
+    {% elif error %}
+      <p class="hint" style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".mp4,.avi,.mov,.mkv" required>
+      <button type="submit" class="submit">Upload</button>
+    </form>
+  </div>
+</main>
+
+<script>function toggleNav(){ document.querySelector("nav ul").classList.toggle("show"); }</script>
+</body>
+</html>

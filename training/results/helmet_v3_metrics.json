@@ -1,0 +1,163 @@
+{
+ "task": "helmet_v3",
+ "base": "yolov8m",
+ "dataset": {
+  "sources": [
+   {
+    "folder": "helmet_heads",
+    "mapping": {
+     "no_helmet": "no_helmet",
+     "helmet": "helmet"
+    },
+    "prefix": "s0_",
+    "classes_present": [
+     "helmet",
+     "no_helmet"
+    ]
+   },
+   {
+    "folder": "object-detection-using-yolov8_bike-helmet-detection-2vdjo-semr0_v4_yolov8",
+    "mapping": {
+     "With Helmet": "helmet",
+     "Without Helmet": "no_helmet",
+     "bike": null
+    },
+    "prefix": "s1_",
+    "classes_present": [
+     "helmet",
+     "no_helmet"
+    ]
+   },
+   {
+    "folder": "learning-evidence_helmet-detection_yolov8_v3_yolov8",
+    "mapping": {
+     "With Helmet": "helmet",
+     "Without Helmet": "no_helmet"
+    },
+    "prefix": "s2_",
+    "classes_present": [
+     "helmet",
+     "no_helmet"
+    ]
+   },
+   {
+    "folder": "gw-khadatkar-and-sv-wasule_helmet-and-no-helmet-rider-detection_v6_yolov8",
+    "mapping": {
+     "With Helmet": "helmet",
+     "Without Helmet": "no_helmet",
+     "licence": null
+    },
+    "prefix": "s3_",
+    "classes_present": [
+     "helmet",
+     "no_helmet"
+    ]
+   }
+  ],
+  "images": {
+   "train": 9432,
+   "val": 1253,
+   "test": 1849
+  },
+  "boxes": {
+   "no_helmet": 9413,
+   "helmet": 15815
+  },
+  "duplicates_removed": 258,
+  "holdout_lookalikes_removed": 0
+ },
+ "new": {
+  "precision": 0.8549,
+  "recall": 0.7844,
+  "mAP50": 0.8412,
+  "mAP50_95": 0.523,
+  "per_class": {
+   "no_helmet": 0.499,
+   "helmet": 0.5469
+  },
+  "per_class_detail": {
+   "no_helmet": {
+    "mAP50": 0.8189,
+    "precision": 0.8475,
+    "recall": 0.745
+   },
+   "helmet": {
+    "mAP50": 0.8636,
+    "precision": 0.8622,
+    "recall": 0.8238
+   }
+  }
+ },
+ "old": {
+  "helmet_best.pt": {
+   "precision": 0.3892,
+   "recall": 0.2536,
+   "mAP50": 0.1912,
+   "mAP50_95": 0.0707,
+   "per_class": {
+    "with helmet": 0.0775,
+    "without helmet": 0.0639
+   },
+   "per_class_detail": {
+    "with helmet": {
+     "mAP50": 0.2026,
+     "precision": 0.4952,
+     "recall": 0.2172
+    },
+    "without helmet": {
+     "mAP50": 0.1799,
+     "precision": 0.2833,
+     "recall": 0.2901
+    }
+   },
+   "mAP50_95_task_classes": 0.0707
+  },
+  "helmet.pt": {
+   "precision": 0.5582,
+   "recall": 0.3004,
+   "mAP50": 0.3023,
+   "mAP50_95": 0.1345,
+   "per_class": {
+    "With helmet": 0.1334,
+    "  Without helmet": 0.1356
+   },
+   "per_class_detail": {
+    "With helmet": {
+     "mAP50": 0.2864,
+     "precision": 0.584,
+     "recall": 0.2985
+    },
+    "  Without helmet": {
+     "mAP50": 0.3181,
+     "precision": 0.5324,
+     "recall": 0.3023
+    }
+   },
+   "mAP50_95_task_classes": 0.1345
+  },
+  "trainedmodels/triple.pt": {
+   "precision": 0.5122,
+   "recall": 0.3195,
+   "mAP50": 0.2929,
+   "mAP50_95": 0.126,
+   "per_class": {
+    "Without Helmet": 0.1306,
+    "With Helmet": 0.1214
+   },
+   "per_class_detail": {
+    "Without Helmet": {
+     "mAP50": 0.3127,
+     "precision": 0.4675,
+     "recall": 0.3397
+    },
+    "With Helmet": {
+     "mAP50": 0.2731,
+     "precision": 0.5569,
+     "recall": 0.2993
+    }
+   },
+   "mAP50_95_task_classes": 0.126
+  }
+ },
+ "train_minutes": 154.7
+}
